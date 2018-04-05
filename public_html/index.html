@@ -1,0 +1,198 @@
+<!doctype html>
+
+<html>
+
+
+<head>
+<title>Study Match</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="./js/jquery.min.js"></script>
+<script src="./js/popper.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">STUDY MATCH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.html">Main</a>
+				</li >
+        <li class="nav-item active">
+          <a class="nav-link" href="searchPartner.html">SearchPartner</a>
+        </li >
+        <li class="nav-item active">
+          <a class="nav-link" href="chatroom.html">Chatroom</a>
+        </li >
+        <li class="nav-item active">
+          <a class="nav-link" href="discussion.html">Discussion</a>
+        </li >
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">User Control</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown">
+            <a class="dropdown-item" href="index.html">Log out</a>
+            <a class="dropdown-item" href="setting.html">Setting</a>
+          </div>
+        </li>
+      </ul>
+		</div>
+	</nav>
+
+<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
+	Copyright &copy; 2018 Panther Coders All Rights Reserved.
+</footer>
+
+
+
+	<script>
+		$(function(){
+
+			$("#usererror").hide();
+			$("#passworderror").hide();
+			$("#emailerror").hide();
+
+
+			var user_error = false;
+			var password_error = false;
+			var email_error = false;
+
+			$("#userid").focusout(function(){
+
+				uservalid();
+
+			});
+
+			$("#userpassword").focusout(function(){
+
+				passwordvalid();
+
+			});
+
+			$("#useremail").focusout(function(){
+
+				emailvalid();
+
+			});
+
+			function uservalid(){
+				var user = $("#userid").val();
+
+				if(user){
+					$("#usererror").hide();
+					user_error=false;
+					$.post("check.php",{ user: user, },function(data){
+							if(data > 0){
+								$("#usererror").html("User Id already taken");
+								$("#usererror").show();
+								user_error = true;
+							}
+						});
+				}else{
+					$("#usererror").html("Please fill out this field");
+					$("#usererror").show();
+					user_error = true;
+				}
+
+			}
+
+			function passwordvalid(){
+				var password = $("#userpassword").val();
+
+				if(password){
+					$("#passworderror").hide();
+					password_error=false;
+					if(password.length<8){
+						$("#passworderror").html("Password must be atleast 8 character");
+						$("#passworderror").show();
+						password_error=true;
+					}
+					else{
+						$("#passworderror").hide();
+					}
+				}else{
+					$("#passworderror").html("Please fill out this field");
+					$("#passworderror").show();
+					password_error=true;
+				}
+
+			}
+
+
+		function emailvalid(){
+			var email = $("#useremail").val();
+
+				if(email){
+					$("#emailerror").hide();
+					email_error=false;
+					var filter= /.+\@student.gsu.edu/;
+					if (!filter.test(email)){
+						$("#emailerror").html("Please enter valid gsu email");
+						$("#emailerror").show();
+						email_error = true;
+					}else{
+					$.post("check.php",{ email: email, },function(data){
+							if(data > 0){
+								$("#emailerror").html("This email is already registered");
+								$("#emailerror").show();
+								email_error = true;
+							}
+						});
+					}
+				}else{
+					$("#emailerror").html("Please fill out this field");
+					$("#emailerror").show();
+					email_error = true;
+				}
+
+		}
+
+		$("#reg_submit").submit(function(){
+			 user_error=false;
+			 email_error=false;
+			 password_error=false;
+				uservalid();
+				passwordvalid();
+				emailvalid();
+			if(user_error==false && email_error==false && password_error==false){
+				return true;
+
+			}else{
+
+				return false;
+			}
+
+
+		});
+
+
+	});
+
+
+	</script>
+
+
+
+
+
+</body>
+
+
+</html>
