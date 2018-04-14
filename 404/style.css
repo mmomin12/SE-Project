@@ -1,0 +1,35 @@
+
+body{
+  heigh:2000px;
+}
+
+.topnav-right {
+  float: right;
+}
+.move-center{
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+   position:fixed;
+   bottom:0px;
+   width:100%;
+   height:70px;   /* Height of the footer */
+   background:#6cf;
+}
+
+h5{
+	text-align:center;
+}
+
+span{
+	color:red;
+}
