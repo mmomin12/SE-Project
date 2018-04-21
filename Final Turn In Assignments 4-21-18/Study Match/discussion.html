@@ -1,0 +1,432 @@
+<!doctype html>
+
+<html>
+
+
+<head>
+<title>Study Match</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="./js/jquery.min.js"></script>
+<script src="./js/popper.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">STUDY MATCH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div id="navbar" class="collapse navbar-collapse">
+      <div class="topnav-right">
+			  <ul class="navbar-nav mr-auto">
+				  <li class="nav-item active">
+					  <a class="nav-link" href="index.html">Main</a>
+				  </li >
+        </ul>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+          <a class="nav-link" href="searchPartner.html">SearchPartner</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="chatroom.html">Chatroom</a>
+        </li >
+
+        <li class="nav-item active">
+          <a class="nav-link" href="discussion.html">Discussion</a>
+        </li >
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">My Account</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown">
+            <a class="dropdown-item" href="index.html">Log out</a>
+            <a class="dropdown-item" href="setting.html">Setting</a>
+          </div>
+        </li>
+      </ul>
+      </div>
+		</div>
+	</nav>
+  <section class="container">
+		<form method="get" action="index.html" class="form-inline mt-3">
+			<select name="lectureDivide" class="form-control mx-1 mt-2">
+				<option value="All">All</option>
+				<option value="Major">Major</option>
+				<option value="Option">Option</option>
+				<option value="etc">etc</option>
+			</select>
+			<select name="searchType" class="form-control mx-1 mt-2">
+				<option value="latest">latest</option>
+				<option value="recommendation">recommendation</option>
+			</select>
+			<input type="text" name="search" class="form-control mx-1 mt-2" placeholder="input your">
+			<button type="submit" class="btn btn-primary mx-1 mt-2">Search</button>
+			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">register</a>
+			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">report</a>
+		</form>
+
+    <div class="card bg-light mt-3">
+			<div class="card-header bg-light">
+				<div class="row">
+					<div class="col-8 text-left">csc3301&nbsp;<small>Awad Mussa</small></div>
+					<div class="col-4 text-right">
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					THIS IS DEOM. THIS IS DEOM. THIS IS DEOM&nbsp;<small>(2017 Summer)</small>
+				</h5>
+				<p class="card-text">THIS IS DEOM. THIS IS DEOM. THIS IS DEOM</p>
+				<div class="row">
+					<div class="col-6 text-left">
+						Study Score<span style="color: red;"> A</span>
+						User Score<span style="color: red;"> A</span>
+						<span style="color: green;">(Recommend: 15)</span>
+					</div>
+					<div class="col-6 text-right">
+            <a class="btn btn-info" data-toggle="modal" href="#answerModal">answer</a>
+						<a class="btn btn-primary" onclick="return confirm('do you want to recommend?')" href="#">recommend</a>
+						<a class="btn btn-danger" onclick="return confirm('do you want to delete?')" href="#">delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal">Discussion & Rate</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form action="#" method="post">
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label>Class Name</label>
+								<input type="text" name="LectureName" class="form-control" maxlength="20">
+							</div>
+
+							<div class="form-group col-sm-6">
+								<label>Professor Name</label>
+								<input type="text" name="professorName" class="form-control" maxlength="20">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-sm-4">
+								<label>date</label>
+								<select name="LectureYear" class="form-control">
+									<option value="2011">2011</option>
+									<option value="2012">2012</option>
+									<option value="2013">2013</option>
+									<option value="2014">2014</option>
+									<option value="2015">2015</option>
+									<option value="2016">2016</option>
+									<option value="2017">2017</option>
+									<option value="2018" selected>2018</option>
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+								</select>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label>semester</label>
+								<select name="semesterDivide"class="form-control">
+									<option value="Spring">Spring</option>
+									<option value="Summer">Summer</option>
+									<option value="Fall">Fall</option>
+								</select>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label>Class Area</label>
+								<select name="ClassArea"class="form-control">
+									<option value="Major">Major</option>
+									<option value="Option">Option</option>
+									<option value="Etc">Etc</option>
+								</select>
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label>Subject</label>
+							<input type="text" name="evaluationTime" class="form-control" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label>your opinion</label>
+							<textarea name="evaluationContent" class="form-control" maxlength="2048" style="height: 180px;"></textarea>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-sm-3">
+								<label>Study Score</label>
+								<select name="StudyScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B" >B</option>
+									<option value="C" >C</option>
+									<option value="D" >D</option>
+									<option value="F" >F</option>
+								</select>
+							</div>
+
+							<div class="form-group col-sm-3">
+								<label>User Score</label>
+								<select name="UserScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B" >B</option>
+									<option value="C" >C</option>
+									<option value="D" >D</option>
+									<option value="F" >F</option>
+								</select>
+							</div>
+						</div>
+
+            <div class="form-group">
+               <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+               <input name="userfile" type="file" />
+            </div>
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Register</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal"> Report</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body">
+					<form action="#" method="post">
+
+						<div class="form-group">
+							<label>Report Subject</label>
+							<input type="text" name="reportTitle" class="form-control" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label>Report opinion</label>
+							<textarea name="reportContent" class="form-control" maxlength="2048" style="height: 180px;"></textarea>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-danger">register</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+<!-- -->
+<div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Answer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="#" method="post">
+          <div class="form-group">
+            <label>content</label>
+            <textarea name="answerContent" class="form-control" maxlength="2048" style="height: 180px;"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
+	Copyright &copy; 2018 Panther Coders All Rights Reserved.
+</footer>
+
+
+
+	<script>
+		$(function(){
+
+			$("#usererror").hide();
+			$("#passworderror").hide();
+			$("#emailerror").hide();
+
+
+			var user_error = false;
+			var password_error = false;
+			var email_error = false;
+
+			$("#userid").focusout(function(){
+
+				uservalid();
+
+			});
+
+			$("#userpassword").focusout(function(){
+
+				passwordvalid();
+
+			});
+
+			$("#useremail").focusout(function(){
+
+				emailvalid();
+
+			});
+
+			function uservalid(){
+				var user = $("#userid").val();
+
+				if(user){
+					$("#usererror").hide();
+					user_error=false;
+					$.post("check.php",{ user: user, },function(data){
+							if(data > 0){
+								$("#usererror").html("User Id already taken");
+								$("#usererror").show();
+								user_error = true;
+							}
+						});
+				}else{
+					$("#usererror").html("Please fill out this field");
+					$("#usererror").show();
+					user_error = true;
+				}
+
+			}
+
+			function passwordvalid(){
+				var password = $("#userpassword").val();
+
+				if(password){
+					$("#passworderror").hide();
+					password_error=false;
+					if(password.length<8){
+						$("#passworderror").html("Password must be atleast 8 character");
+						$("#passworderror").show();
+						password_error=true;
+					}
+					else{
+						$("#passworderror").hide();
+					}
+				}else{
+					$("#passworderror").html("Please fill out this field");
+					$("#passworderror").show();
+					password_error=true;
+				}
+
+			}
+
+
+		function emailvalid(){
+			var email = $("#useremail").val();
+
+				if(email){
+					$("#emailerror").hide();
+					email_error=false;
+					var filter= /.+\@student.gsu.edu/;
+					if (!filter.test(email)){
+						$("#emailerror").html("Please enter valid gsu email");
+						$("#emailerror").show();
+						email_error = true;
+					}else{
+					$.post("check.php",{ email: email, },function(data){
+							if(data > 0){
+								$("#emailerror").html("This email is already registered");
+								$("#emailerror").show();
+								email_error = true;
+							}
+						});
+					}
+				}else{
+					$("#emailerror").html("Please fill out this field");
+					$("#emailerror").show();
+					email_error = true;
+				}
+
+		}
+
+		$("#reg_submit").submit(function(){
+			 user_error=false;
+			 email_error=false;
+			 password_error=false;
+				uservalid();
+				passwordvalid();
+				emailvalid();
+			if(user_error==false && email_error==false && password_error==false){
+				return true;
+
+			}else{
+
+				return false;
+			}
+
+
+		});
+
+
+	});
+
+
+	</script>
+
+
+
+
+
+</body>
+
+
+</html>
